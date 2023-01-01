@@ -1,0 +1,176 @@
+#include "ui_mp/menudef.h"
+
+#define ORIGIN_WINDOW		20 8
+#define GLOBAL_TEXTSCALE	0.25
+
+{
+	menuDef 
+	{
+		name			"settings_dm"
+		fullscreen		0
+		rect			5 102 361 278	
+		focuscolor		UI_FOCUS_COLOR
+		style			1
+		border			0
+		onEsc  
+		{
+			open main;
+			close createserver;
+		}
+
+		itemDef
+		{
+			visible			1
+			rect			5 56 OPTIONS_CONTROL_SIZE
+			origin			0 0
+			forecolor		OPTIONS_CONTROL_FORECOLOR
+			backcolor		OPTIONS_CONTROL_BACKCOLOR       
+			style			WINDOW_STYLE_FILLED
+			textfont		UI_FONT_NORMAL
+			type			ITEM_TYPE_NUMERICFIELD
+			text			"@MENU_SCORE_LIMIT_PLAYER_POINTS"
+			textalign		ITEM_ALIGN_RIGHT
+			textalignx		OPTIONS_CONTROL_XALIGN 
+			textaligny		OPTIONS_CONTROL_YALIGN
+			textscale		GLOBAL_TEXTSCALE
+			cvar			"scr_dm_scorelimit"
+			maxChars		4
+			mouseEnter		{ play "mouse_over" }
+		}
+
+		itemDef
+		{
+			visible			1
+			rect			5 71 OPTIONS_CONTROL_SIZE
+			origin			0 0
+			forecolor		OPTIONS_CONTROL_FORECOLOR
+			backcolor		OPTIONS_CONTROL_BACKCOLOR       
+			style			WINDOW_STYLE_FILLED
+			textfont		UI_FONT_NORMAL
+			type			ITEM_TYPE_NUMERICFIELD
+			text			"@MENU_TIME_LIMIT"
+			textalign		ITEM_ALIGN_RIGHT
+			textalignx		OPTIONS_CONTROL_XALIGN 
+			textaligny		OPTIONS_CONTROL_YALIGN
+			textscale		GLOBAL_TEXTSCALE
+			cvar			"scr_dm_timelimit"
+			maxChars		4
+			mouseEnter		{ play "mouse_over" }
+		}
+
+		itemDef
+		{
+			visible			1
+			rect			5 86 OPTIONS_CONTROL_SIZE
+			origin			0 0
+			forecolor		OPTIONS_CONTROL_FORECOLOR
+			backcolor		OPTIONS_CONTROL_BACKCOLOR       
+			style			WINDOW_STYLE_FILLED
+			textfont		UI_FONT_NORMAL
+			type			ITEM_TYPE_YESNO
+			text			"@MENU_FORCE_RESPAWNING"
+			textalign		ITEM_ALIGN_RIGHT
+			textalignx		OPTIONS_CONTROL_XALIGN 
+			textaligny		OPTIONS_CONTROL_YALIGN
+			textscale		GLOBAL_TEXTSCALE
+			cvar			"scr_forcerespawn"
+			mouseEnter		{ play "mouse_over" }
+			action			{ play "mouse_click" }
+		}
+		
+		itemDef
+		{
+			visible			1
+			rect			5 101 OPTIONS_CONTROL_SIZE
+			origin			0 0
+			forecolor		OPTIONS_CONTROL_FORECOLOR
+			backcolor		OPTIONS_CONTROL_BACKCOLOR       
+			style			WINDOW_STYLE_FILLED
+			textfont		UI_FONT_NORMAL
+			type			ITEM_TYPE_YESNO
+			text			"@MENU_ALLOW_VOTING"
+			textalign		ITEM_ALIGN_RIGHT
+			textalignx		OPTIONS_CONTROL_XALIGN 
+			textaligny		OPTIONS_CONTROL_YALIGN
+			textscale		GLOBAL_TEXTSCALE
+			cvar			"g_allowvote"
+			mouseEnter		{ play "mouse_over" }
+			action			{ play "mouse_click" }
+		}
+
+		itemDef
+		{
+			visible			1
+			rect			5 116 OPTIONS_CONTROL_SIZE
+			origin			0 0
+			forecolor		OPTIONS_CONTROL_FORECOLOR
+			backcolor		OPTIONS_CONTROL_BACKCOLOR       
+			style			WINDOW_STYLE_FILLED
+			textfont		UI_FONT_NORMAL
+			type			ITEM_TYPE_YESNO
+			text			"@MENU_ALLOW_SNIPER_RIFLES"
+			textalign		ITEM_ALIGN_RIGHT
+			textalignx		OPTIONS_CONTROL_XALIGN 
+			textaligny		OPTIONS_CONTROL_YALIGN
+			textscale		GLOBAL_TEXTSCALE
+			cvar			"ui_allow_sniperrifles"
+			mouseEnter		{ play "mouse_over" }
+			cvartest		"ui_allow_sniperrifles"
+			showCvar		{ "0" }
+			action
+			{
+				setcvar scr_allow_springfield "1";
+				setcvar scr_allow_nagantsniper "1";
+				setcvar scr_allow_kar98ksniper "1";
+				play "mouse_click";
+			}
+		}
+		itemDef
+		{
+			visible			1
+			rect			5 116 OPTIONS_CONTROL_SIZE
+			origin			0 0
+			forecolor		OPTIONS_CONTROL_FORECOLOR
+			backcolor		OPTIONS_CONTROL_BACKCOLOR       
+			style			WINDOW_STYLE_FILLED
+			textfont		UI_FONT_NORMAL
+			type			ITEM_TYPE_YESNO
+			text			"@MENU_ALLOW_SNIPER_RIFLES"
+			textalign		ITEM_ALIGN_RIGHT
+			textalignx		OPTIONS_CONTROL_XALIGN 
+			textaligny		OPTIONS_CONTROL_YALIGN
+			textscale		GLOBAL_TEXTSCALE
+			cvar			"ui_allow_sniperrifles"
+			mouseEnter		{ play "mouse_over" }
+			cvartest		"ui_allow_sniperrifles"
+			hideCvar		{ "0" }
+			action
+			{
+				setcvar scr_allow_springfield "0";
+				setcvar scr_allow_nagantsniper "0";
+				setcvar scr_allow_kar98ksniper "0";
+				play "mouse_click";
+			}
+		}
+
+		itemDef
+		{
+			visible			1
+			rect			5 131 OPTIONS_CONTROL_SIZE
+			origin			0 0
+			forecolor		OPTIONS_CONTROL_FORECOLOR
+			backcolor		OPTIONS_CONTROL_BACKCOLOR       
+			style			WINDOW_STYLE_FILLED
+			textfont		UI_FONT_NORMAL
+			type			ITEM_TYPE_YESNO
+			text			"@MENU_ALLOW_PANZERFAUSTS"
+			textalign		ITEM_ALIGN_RIGHT
+			textalignx		OPTIONS_CONTROL_XALIGN 
+			textaligny		OPTIONS_CONTROL_YALIGN
+			textscale		GLOBAL_TEXTSCALE
+			cvar			"scr_allow_panzerfaust"
+			mouseEnter		{ play "mouse_over" }
+			action			{ play "mouse_click" }
+		}
+	}
+}
